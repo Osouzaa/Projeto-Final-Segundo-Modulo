@@ -36,6 +36,6 @@ PacientService().then((response: any) => {
     }
   ]
 })
-export default Patient
+
 
 
