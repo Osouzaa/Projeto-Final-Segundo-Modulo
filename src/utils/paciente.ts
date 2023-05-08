@@ -2,34 +2,40 @@ import Person from '../icons/Person.svg'
 import SuitCase from '../icons/Suitcase.svg'
 import Work from '../icons/Work.svg'
 import School from '../icons/School.svg'
+import { PacientService } from '@/Service/Pacient/Pacient'
 
 type Props = {
-  imagem: string,
-  text: string,
+  imagem: string
+  text: string
   title: string
 }
 
-const Patient: Props[] = [
-  {
-    imagem: Person,
-    text: 'Ana Luiza',
-    title: 'Paciente'
-  },
-  {
-    imagem: SuitCase,
-    text: '10/09/2000',
-    title: 'Nascimento'
-  },
-  {
-    imagem: Work,
-    text: '10/09/2000',
-    title: 'Profissão'
-  },
-  {
-    imagem: School,
-    text: 'Superior incompleto',
-    title: 'Escolaridade'
-  }
-]
-
+PacientService().then((response: any) => {
+  const formattedDate = response.birthdate.substring(0, 10)
+  
+  const Patient = [
+    {
+      imagem: Person,
+      text: response.data,
+      title: 'Paciente'
+    },
+    {
+      imagem: SuitCase,
+      text: formattedDate,
+      title: 'Nascimento'
+    },
+    {
+      imagem: Work,
+      text: response.profession,
+      title: 'Profissão'
+    },
+    {
+      imagem: School,
+      text: response.schooling,
+      title: 'Escolaridade'
+    }
+  ]
+})
 export default Patient
+
+

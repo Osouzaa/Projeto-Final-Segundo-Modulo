@@ -14,7 +14,7 @@ type TimeLineItem = {
   type: string
 }
 
-const CardAvaliação = (): JSX.Element => {
+const FatoRelevante = (): JSX.Element => {
   const [timeLine, setTimeLine] = useState<TimeLineItem[]>([])
 
   const getOccurrences = async (): Promise<void> => {
@@ -46,7 +46,7 @@ const CardAvaliação = (): JSX.Element => {
     <>
       {timeLine.map((item, index) => (
         <>
-          {item.type === 'assessment' && (
+          {item.type === 'relevant_fact' && (
             <S.Container key={index} className={`${item.identi}-bg`}>
               {index !== 0 && <S.Listra className={`${item.identi}-bg`}></S.Listra>}
               <S.Imagem className={`${item.identi}-bg`}>
@@ -69,4 +69,4 @@ const CardAvaliação = (): JSX.Element => {
   )
 }
 
-export default CardAvaliação
+export default FatoRelevante

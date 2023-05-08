@@ -1,7 +1,23 @@
-import { httpClient } from '@/Service/http-client'
 import { useEffect, useState } from 'react'
-import IconFatoRelevante from '@/icons/IconsCard/FatoRelevante.svg'
+import Modal3Pontos from '../Modais/modal3pontos'
+import CardAnexo from '../CardAnexo'
+import CardAvaliação from '../CardAvaliação'
 import S from './style'
+import { httpClient } from '@/Service/http-client'
+import IconSessao from '@/icons/IconsCard/SessaoIcons.svg'
+import DocumentosImportantes from '@/icons/IconsCard/DocumentosImportantes.svg'
+import AvaliaçãoPsicologica from '@/icons/IconsCard/AvaliaçãoPsicologica.svg'
+
+type TimelineItem = {
+  icon: string
+  title: string
+  description: string
+  text?: string
+  identi: 'green' | 'purple' | 'pink'
+  isOpen: boolean
+  id: string
+  type: 'session' | 'important_documents' | 'psychological_evaluation'
+}
 
 type TimeLineItem = {
   icon: any
@@ -14,7 +30,7 @@ type TimeLineItem = {
   type: string
 }
 
-const CardAvaliação = (): JSX.Element => {
+const CardSessao = (): JSX.Element => {
   const [timeLine, setTimeLine] = useState<TimeLineItem[]>([])
 
   const getOccurrences = async (): Promise<void> => {
@@ -22,13 +38,13 @@ const CardAvaliação = (): JSX.Element => {
     console.log(response.data.timeline.occurrences)
     const result: TimeLineItem[] = response.data.timeline.occurrences.map((item: any) => {
       return {
-        icon: IconFatoRelevante,
+        icon: IconSessao,
         title: item.title,
         description: new Intl.DateTimeFormat('pt-br', { year: 'numeric', month: 'long', day: 'numeric' }).format(
           new Date(item.createdOn)
         ),
         text: item.content,
-        identi: 'blue',
+        identi: 'green',
         isOpen: false,
         id: item._id,
         type: item.type
@@ -46,13 +62,14 @@ const CardAvaliação = (): JSX.Element => {
     <>
       {timeLine.map((item, index) => (
         <>
-          {item.type === 'assessment' && (
+          {item.type === 'session' && (
             <S.Container key={index} className={`${item.identi}-bg`}>
               {index !== 0 && <S.Listra className={`${item.identi}-bg`}></S.Listra>}
               <S.Imagem className={`${item.identi}-bg`}>
                 <img src={item.icon} alt="" />
               </S.Imagem>
               <S.EditCard> ...</S.EditCard>
+
               <S.Content>
                 <h4>{item.title}</h4>
                 <p>{item.description}</p>
@@ -69,4 +86,4 @@ const CardAvaliação = (): JSX.Element => {
   )
 }
 
-export default CardAvaliação
+export default CardSessao

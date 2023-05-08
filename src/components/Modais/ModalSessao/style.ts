@@ -19,7 +19,7 @@ const Container = styled.div`
     transition: opacity 2s ease;
   }
 
-  @media (max-width: 1920px) {
+  @media (min-width: 1920px) {
     transform: translate(-50%, -150%);
   }
 `

@@ -12,9 +12,5 @@ export const GetLogin = async (): Promise<Response> => {
     method: 'get'
   })
 
-  if (response.status === 200) {
-    return response.data
-  }
-
-  throw new Error('Usuário não Autenticado')
+  return response.data
 }

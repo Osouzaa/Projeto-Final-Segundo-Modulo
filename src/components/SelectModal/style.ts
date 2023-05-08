@@ -11,7 +11,7 @@ const ContentModal = styled.div`
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   border-radius: 8px 0px 8px 8px;
  
-  @media (max-width: 1920px) {
+  @media (min-width: 1920px) {
     left: 83%;
   }
 

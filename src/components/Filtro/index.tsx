@@ -1,4 +1,4 @@
-import Sections from '../CardSessão'
+import Sections from '../ContainerCards'
 import SelectFiltro from '../SelectModal'
 import S from './styled'
 

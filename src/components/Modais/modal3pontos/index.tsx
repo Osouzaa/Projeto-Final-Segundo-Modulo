@@ -7,15 +7,15 @@ const Modal3Pontos = () => {
   return (
     <div>
       <S.Contente>
-        <S.ContentItens>
+        <S.ContentItens >
           <img src={Editar} alt="" />
           <S.EditarP>Editar</S.EditarP>
         </S.ContentItens>
-        <S.ContentItens>
+        <S.ContentItens >
           <img src={Lixeira} alt="" />
           <S.ExluirP>Excluir </S.ExluirP>
         </S.ContentItens>
-        <S.ContentItens>
+        <S.ContentItens >
           <img src={Exportar} alt="" />
           <S.ExportarP>Exportar </S.ExportarP>
         </S.ContentItens>

@@ -4,6 +4,8 @@ interface Props {
   top?: boolean
 }
 
+
+
 const Contente = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,6 +16,9 @@ const Contente = styled.div`
 const ContentItens = styled.div`
   display: flex;
   gap: 0.5em;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
 `
 
 const ContainerGeral = styled.div<Props>`
@@ -56,5 +61,5 @@ export default {
   EditarP,
   ExluirP,
   ExportarP,
-  ContentItens
+  ContentItens,
 }

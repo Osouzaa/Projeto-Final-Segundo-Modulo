@@ -152,7 +152,7 @@ const ContentItens = styled.div`
 
 const ContainerGeral = styled.div<Props>`
   position: absolute;
-  left: ${props => (props.left ? '79%' : '79%')};
+  left: ${props => (props.left ? '77%' : '77%')};
   display: flex;
   flex-direction: column;
 
@@ -178,10 +178,10 @@ const ContainerGeral = styled.div<Props>`
     top: 16%;
   }
   &.top-FatoRelevante {
-    top: 35%;
+    top: 37%;
   }
 
-  @media (max-width: 1920px) {
+  @media (min-width: 1920px) {
     left: 85%;
     
   &.top-sessão {

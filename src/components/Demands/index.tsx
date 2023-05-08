@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AnotaçõesPessoais from '../Modais/AnotaçõesPessoais'
 import S from './style'
 import Cards from '@/utils/Card'
 
+
 const Demands = () => {
   const [openSessao, setOpenSessao] = useState(false)
-
   return (
     <div>
       {Cards.map(Card => (
